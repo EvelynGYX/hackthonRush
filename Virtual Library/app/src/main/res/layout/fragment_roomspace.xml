@@ -56,24 +56,24 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
-                android:id="@+id/resource_title"
+                android:id="@+id/task_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="16dp"
-                android:labelFor="@id/resource_description"
-                android:text="Resource:"
+                android:labelFor="@id/task_description"
+                android:text="Task:"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/color_black" />
 
             <TextView
-                android:id="@+id/resource_description"
+                android:id="@+id/task_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_marginHorizontal="16dp"
-                android:text="This is a resource for Master of Information Technology students."
+                android:text="This is a task for Master of Information Technology students."
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="16dp"
-                android:labelFor="@id/resource_description"
+                android:labelFor="@id/resource_category_description"
                 android:text="Resource Category:"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -104,7 +104,6 @@
                 android:layout_weight="1"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:labelFor="@id/resource_description"
                 android:text="Group users in this room:"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
