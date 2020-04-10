@@ -1,0 +1,2 @@
+rootProject.name='Virtual Library'
+include ':app'
