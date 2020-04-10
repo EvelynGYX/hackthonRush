@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.virtuallibrary.FirstFragment"
+        android:name="com.example.virtuallibrary.RoomSpaceFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_roomspace">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

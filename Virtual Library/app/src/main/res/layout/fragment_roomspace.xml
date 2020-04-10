@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    tools:context=".FirstFragment">
+    tools:context=".RoomSpaceFragment">
 
     <Button
         android:id="@+id/button_first"
@@ -43,6 +42,8 @@
                 android:text="Subject:"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:textColor="@color/color_black" />
 
             <TextView
@@ -96,10 +97,23 @@
                 android:text="e-textbook"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <TextView
+                android:id="@+id/users_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:labelFor="@id/resource_description"
+                android:text="Group users in this room:"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/color_black" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/user_list_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
 

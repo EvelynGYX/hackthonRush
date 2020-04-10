@@ -10,7 +10,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomList extends AppCompatActivity {
+public class RoomListActivity extends AppCompatActivity {
 
     private List<RoomInfo> roomList = new ArrayList<>();
 
