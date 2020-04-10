@@ -1,8 +1,8 @@
 package com.example.virtuallibrary;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+//import android.support.annotation.NonNull;
+//import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +10,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.virtuallibrary.R;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.UserHolder> {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
     private Context context;
     private ArrayList<User> users;
 
-    public MyAdapter(Context context, ArrayList<User> users) {
+    public UserAdapter(Context context, ArrayList<User> users) {
         this.context = context;
         this.users = users;
     }
