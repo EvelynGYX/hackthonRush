@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -17,11 +19,15 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
         TextView number;
         TextView subject;
         TextView task;
+        View itemView;
 
         public ViewHolder(View view){
             super(view);
+            itemView = view;
             roomName = view.findViewById(R.id.room_list_name);
             number = view.findViewById(R.id.room_list_number);
+            subject = view.findViewById(R.id.room_subject);
+            task = view.findViewById(R.id.room_task);
         }
 
     }
@@ -32,18 +38,25 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
 
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.room_list_item, parent, false);
-        ViewHolder holder = new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Toast.makeText(v.getContext(), "number " + Integer.toString(position), Toast.LENGTH_SHORT).show();
+            }
+        });
         return holder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         RoomInfo room = roomList.get(position);
-        holder.roomName.setText(room.getRoomName());
-        holder.number.setText(room.getNumberOfUsers());
+        holder.roomName.setText("Room: " + room.getRoomName());
+        holder.number.setText(room.getNumberOfUsers() + " people in room");
         holder.subject.setText(room.getSubject());
         holder.task.setText(room.getTask());
     }
