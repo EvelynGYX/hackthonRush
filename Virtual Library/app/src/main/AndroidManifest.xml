@@ -22,7 +22,6 @@
         <activity
             android:name=".RoomListActivity"
             android:launchMode="singleTask" />
-<!--        <activity android:name=".RoomspaceActivity" />-->
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,8 +30,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".RoomspaceActivity">
-
+        </activity>
+<!--        register resource present page activity-->
+        <activity
+            android:name=".ResourceListActivity" >
+        </activity>
+        <activity
+            android:name=".PdfViewActivity" >
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 </manifest>
