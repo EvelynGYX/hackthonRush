@@ -1,6 +1,10 @@
 package com.example.virtuallibrary;
 
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+
 public class RoomInfo {
 
     private String roomID;
@@ -9,20 +13,26 @@ public class RoomInfo {
     private String roomType;
     private String subject;
     private String task;
+    private JSONArray users;
 
-    public RoomInfo( String roomName, String numberOfUsers,
-                    String roomType, String subject, String task){
-//        this.roomID = roomID;
+    public RoomInfo(String roomID, String roomName, String numberOfUsers,
+                    String roomType, String subject, String task, JSONArray users){
+        this.roomID = roomID;
         this.roomName = roomName;
         this.numberOfUsers = numberOfUsers;
         this.roomType = roomType;
         this.subject = subject;
         this.task = task;
+        this.users = users;
     }
 
-//    public String getRoomID(){
-//        return roomID;
-//    }
+    public String getRoomID(){
+        return roomID;
+    }
+
+    public JSONArray getUsers(){
+        return  users;
+    }
 
     public String getRoomName(){
         return roomName;

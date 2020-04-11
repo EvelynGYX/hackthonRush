@@ -16,6 +16,7 @@
         <activity android:name=".CreateRoomActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".RoomListActivity" android:launchMode="singleTask"></activity>
+        <activity android:name=".RoomspaceActivity"></activity>
         <activity android:name=".LoginActivity">
         </activity>
         <activity android:name=".RoomspaceActivity">
@@ -24,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

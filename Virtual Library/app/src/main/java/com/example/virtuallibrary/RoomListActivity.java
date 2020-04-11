@@ -50,18 +50,36 @@ public class RoomListActivity extends AppCompatActivity {
         if (actionBar != null){
             actionBar.hide();
         }
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.room_list_view);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.room_list_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         adapter= new RoomListAdapter(roomList);
         recyclerView.setAdapter(adapter);
+
+        adapter.setItemClickListener(new OnRecyclerViewClickListener() {
+            @Override
+            public void onItemClickListener(View view) {
+                int position = recyclerView.getChildAdapterPosition(view);
+                String roomId = roomList.get(position).getRoomID();
+                String title = roomList.get(position).getRoomName();
+                JSONArray users = roomList.get(position).getUsers();
+                Intent intent = new Intent(RoomListActivity.this, RoomspaceActivity.class);
+                intent.putExtra("roomId", roomId);
+                intent.putExtra("userName", userName);
+                intent.putExtra("title", title);
+                intent.putExtra("users", users.toString());
+                intent.putExtra("subject", roomList.get(position).getSubject());
+                intent.putExtra("tasks", roomList.get(position).getTask());
+                startActivity(intent);
+//                finish();
+            }
+        });
 
         create_room_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RoomListActivity.this, CreateRoomActivity.class);
                 intent.putExtra("username", userName);
-//                startActivity(intent);
                 startActivityForResult(intent, 1);
             }
         });
@@ -85,7 +103,6 @@ public class RoomListActivity extends AppCompatActivity {
 
                         @Override
                         public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                            Log.d("fkkkk", "run: ");
                             String responseData = response.body().string();
                             parseJSONWithJsonObject(responseData);
 
@@ -105,13 +122,14 @@ public class RoomListActivity extends AppCompatActivity {
             for (int i=0; i < jsonArray.length(); i++){
                 Log.d("loop", Integer.toString(i));
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String roomId = jsonObject.getString("_id");
                 String roomName = jsonObject.getString("title");
                 String roomType = jsonObject.getString("roomType");
                 String subject = jsonObject.getString("subject");
                 String task = jsonObject.getString("tasks");
                 JSONArray users = jsonObject.getJSONArray("users");
                 String numberOfUser = Integer.toString(users.length());
-                RoomInfo room = new RoomInfo(roomName, numberOfUser, roomType, subject, task);
+                RoomInfo room = new RoomInfo(roomId,roomName, numberOfUser, roomType, subject, task, users);
                 roomList.add(room);
             }
             runOnUiThread(new Runnable() {

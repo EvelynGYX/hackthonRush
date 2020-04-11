@@ -1,5 +1,6 @@
 package com.example.virtuallibrary;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import java.util.List;
 public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHolder> {
 
     private List<RoomInfo> roomList;
+    private OnRecyclerViewClickListener listener;
+
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView roomName;
@@ -32,6 +35,10 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
 
     }
 
+    public void setItemClickListener(OnRecyclerViewClickListener itemClickListener) {
+        listener = itemClickListener;
+    }
+
     public RoomListAdapter(List<RoomInfo> roomList){
         this.roomList = roomList;
     }
@@ -41,14 +48,25 @@ public class RoomListAdapter extends RecyclerView.Adapter<RoomListAdapter.ViewHo
     public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.room_list_item, parent, false);
-        final ViewHolder holder = new ViewHolder(view);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                Toast.makeText(v.getContext(), "number " + Integer.toString(position), Toast.LENGTH_SHORT).show();
-            }
-        });
+        ViewHolder holder = new ViewHolder(view);
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int position = holder.getAdapterPosition();
+//                Toast.makeText(v.getContext(), "number " + Integer.toString(position), Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(v.getContext(), RoomspaceActivity.class);
+//                parent.getContext().startActivities(new Intent[]{intent});
+//            }
+//        });
+        if (listener != null){
+            view.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClickListener(v);
+                }
+            });
+        }
+
         return holder;
     }
 
