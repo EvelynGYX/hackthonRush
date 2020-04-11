@@ -13,18 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CreateRoomActivity"></activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".RoomListActivity" android:launchMode="singleTask"></activity>
-        <activity android:name=".RoomspaceActivity"></activity>
+        <activity android:name=".ChatBoxActivity"></activity>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".CreateRoomActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".RoomListActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".RoomspaceActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

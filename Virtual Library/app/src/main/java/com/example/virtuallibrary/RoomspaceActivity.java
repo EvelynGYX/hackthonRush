@@ -24,6 +24,10 @@ public class RoomspaceActivity extends AppCompatActivity {
     private String roomId;
     private String roomTitle;
 
+    public String subject;
+    public String task;
+
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +37,13 @@ public class RoomspaceActivity extends AppCompatActivity {
         userName = intent.getStringExtra("userName");
         roomId = intent.getStringExtra("roomId");
         roomTitle = intent.getStringExtra("title");
-        String subject = intent.getStringExtra("subject");
-        String task = intent.getStringExtra("tasks");
+        subject = intent.getStringExtra("subject");
+        task = intent.getStringExtra("tasks");
 
-        Log.d("Room space", "onCreate: " + subject + " " + task);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Room: "+roomTitle);
-//        TextView subject_text = findViewById(R.id.subject_description);
-//        subject_text.setText(subject);
-//        TextView task_text = findViewById(R.id.task_description);
-//        task_text.setText(task);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
