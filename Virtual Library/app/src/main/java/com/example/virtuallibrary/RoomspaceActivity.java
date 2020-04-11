@@ -2,6 +2,7 @@ package com.example.virtuallibrary;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,12 +35,15 @@ public class RoomspaceActivity extends AppCompatActivity {
         roomTitle = intent.getStringExtra("title");
         String subject = intent.getStringExtra("subject");
         String task = intent.getStringExtra("tasks");
+
+        Log.d("Room space", "onCreate: " + subject + " " + task);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Room: "+roomTitle);
-        TextView subject_text = findViewById(R.id.subject_description);
-        subject_text.setText(subject);
-        TextView task_text = findViewById(R.id.task_description);
-        task_text.setText(task);
+//        TextView subject_text = findViewById(R.id.subject_description);
+//        subject_text.setText(subject);
+//        TextView task_text = findViewById(R.id.task_description);
+//        task_text.setText(task);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
