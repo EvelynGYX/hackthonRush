@@ -86,6 +86,25 @@ public class RoomListActivity extends AppCompatActivity {
 
     }
 
+    private void enterRoom(String roomId){
+        final String url = "https://techtailors.sytes.net:8400/rooms/addme/" + roomId + "/" + userName;
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Toast.makeText(RoomListActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                Toast.makeText(RoomListActivity.this, "Entering", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void getRoomList(){
         new Thread(new Runnable() {
             @Override

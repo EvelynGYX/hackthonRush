@@ -1,6 +1,6 @@
 package com.example.virtuallibrary;
 
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 //import android.support.v7.widget.DefaultItemAnimator;
 //import android.support.v7.widget.LinearLayoutManager;
@@ -23,7 +23,7 @@ import com.github.nkzawa.socketio.client.Socket;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.Socket;
+//import java.net.Socket;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,6 @@ public class ChatBoxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_box);
-
         messagetxt = (EditText) findViewById(R.id.message) ;
         send = (Button)findViewById(R.id.send);
         // get the nickame of the user
