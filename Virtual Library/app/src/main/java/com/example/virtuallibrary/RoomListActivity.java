@@ -61,9 +61,15 @@ public class RoomListActivity extends AppCompatActivity {
             public void onItemClickListener(View view) {
                 int position = recyclerView.getChildAdapterPosition(view);
                 String roomId = roomList.get(position).getRoomID();
+                String title = roomList.get(position).getRoomName();
+                JSONArray users = roomList.get(position).getUsers();
                 Intent intent = new Intent(RoomListActivity.this, RoomspaceActivity.class);
                 intent.putExtra("roomId", roomId);
                 intent.putExtra("userName", userName);
+                intent.putExtra("title", title);
+                intent.putExtra("users", users.toString());
+                intent.putExtra("subject", roomList.get(position).getSubject());
+                intent.putExtra("tasks", roomList.get(position).getTask());
                 startActivity(intent);
 //                finish();
             }
@@ -123,7 +129,7 @@ public class RoomListActivity extends AppCompatActivity {
                 String task = jsonObject.getString("tasks");
                 JSONArray users = jsonObject.getJSONArray("users");
                 String numberOfUser = Integer.toString(users.length());
-                RoomInfo room = new RoomInfo(roomId,roomName, numberOfUser, roomType, subject, task);
+                RoomInfo room = new RoomInfo(roomId,roomName, numberOfUser, roomType, subject, task, users);
                 roomList.add(room);
             }
             runOnUiThread(new Runnable() {
