@@ -17,14 +17,14 @@
         android:paddingTop="16dp">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="132dp"
-            android:text="GroupIt"
-            android:textAllCaps="false"
-            android:textSize="25sp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            />
 
 
         <!-- Snippet from "Add text fields" section goes here. -->
@@ -87,6 +87,10 @@
             android:id="@+id/login_btn"
             android:layout_width="109dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:background="@color/colorAccent"
+            android:textColor="#ffff"
             android:text="Login" />
 
 
