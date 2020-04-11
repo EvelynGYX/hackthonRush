@@ -113,7 +113,8 @@ public class RoomspaceActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.resources) {
-            return true;
+            Intent intent = new Intent(RoomspaceActivity.this, ResourceListActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
