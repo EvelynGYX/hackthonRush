@@ -38,6 +38,10 @@ public class RoomSpaceFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
 
+        //receive data
+        Bundle bundle = getArguments();
+        String data = bundle.getString("DATA");
+        Log.e("data", data);
         return view;
     }
 
