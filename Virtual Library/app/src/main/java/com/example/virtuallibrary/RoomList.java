@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,6 +54,8 @@ public class RoomList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(RoomList.this, "add", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RoomList.this, CreateRoomActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -67,11 +70,9 @@ public class RoomList extends AppCompatActivity {
                     Request request = new Request.Builder()
                             .url("https://techtailors.sytes.net:8400/rooms/listall")
                             .build();
-                    Log.d("fkkkk", "client");
                     client.newCall(request).enqueue(new Callback() {
                         @Override
                         public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                            Log.d("fkkkk", "onFailure: ");
 //                            Toast.makeText(RoomList.this, "Network issue, try it later", Toast.LENGTH_SHORT).show();
                         }
 
