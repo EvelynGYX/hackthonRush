@@ -128,7 +128,7 @@ public class CreateRoomActivity extends AppCompatActivity {
                     String responseData = response.body().string();
                     try {
                         JSONObject jsonData = new JSONObject(responseData);
-                        Intent intent = new Intent(CreateRoomActivity.this, RoomList.class);
+                        Intent intent = new Intent(CreateRoomActivity.this, RoomListActivity.class);
                         setResult(RESULT_OK, intent);
 //                        startActivity(intent);
                         finish();

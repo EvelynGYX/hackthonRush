@@ -102,7 +102,7 @@ public class RegisterActivity  extends AppCompatActivity {
                             String userID = jsonData.getString("_id");
                             String token = jsonData.getString("password");
 
-                            Intent intent = new Intent(RegisterActivity.this, RoomList.class);
+                            Intent intent = new Intent(RegisterActivity.this, RoomListActivity.class);
                             intent.putExtra("userName", jsonData.getString("username"));
                             startActivity(intent);
                             finish();

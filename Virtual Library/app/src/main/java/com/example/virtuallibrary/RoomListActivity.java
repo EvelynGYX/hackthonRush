@@ -29,7 +29,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class RoomList extends AppCompatActivity {
+public class RoomListActivity extends AppCompatActivity {
 
     private List<RoomInfo> roomList = new ArrayList<>();
     private OkHttpClient client;
@@ -59,7 +59,7 @@ public class RoomList extends AppCompatActivity {
         create_room_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RoomList.this, CreateRoomActivity.class);
+                Intent intent = new Intent(RoomListActivity.this, CreateRoomActivity.class);
                 intent.putExtra("username", userName);
 //                startActivity(intent);
                 startActivityForResult(intent, 1);
@@ -132,7 +132,7 @@ public class RoomList extends AppCompatActivity {
             case 1:
                 if(resultCode == RESULT_OK){
                     getRoomList();
-                    Toast.makeText(RoomList.this, "You created a new room", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RoomListActivity.this, "You created a new room", Toast.LENGTH_SHORT).show();
                 }
         }
     }

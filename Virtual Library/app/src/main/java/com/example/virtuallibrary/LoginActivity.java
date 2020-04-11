@@ -22,7 +22,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -32,7 +31,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private TextInputEditText usernameInput;
     private TextInputLayout passwordLayout;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 finish();
                     }
@@ -95,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
 
-                                Toast.makeText(MainActivity.this, "Log in failed, try it later", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Log in failed, try it later", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -108,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                             final JSONObject jsonData = new JSONObject(responseData);
 
 
-                            Intent intent = new Intent(MainActivity.this, RoomList.class);
+                            Intent intent = new Intent(LoginActivity.this, RoomListActivity.class);
                             intent.putExtra("userName", jsonData.getString("username"));
                             startActivity(intent);
                             finish();

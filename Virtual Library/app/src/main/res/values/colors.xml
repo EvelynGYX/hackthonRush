@@ -37,4 +37,6 @@
     <color name="item_background">#FFF</color>
     <color name="blue">#2e60bb</color>
     <color name="gray">#e2e6e9</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_black">#000000</color>
 </resources>
