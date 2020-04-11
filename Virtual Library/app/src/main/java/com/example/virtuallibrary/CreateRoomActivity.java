@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,10 +37,15 @@ public class CreateRoomActivity extends AppCompatActivity {
     private String input_title;
     private String input_subject;
     private String input_task;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("username");
+        Log.d("username", "onCreate: "+userName);
+
         setContentView(R.layout.activity_create_room);
         back_btn = findViewById(R.id.back);
         submit_btn = findViewById(R.id.submit_create_room);
@@ -47,7 +53,12 @@ public class CreateRoomActivity extends AppCompatActivity {
         title = findViewById(R.id.input_title);
         subject = findViewById(R.id.input_subject);
         tasks = findViewById(R.id.input_task);
-
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                user_name.setText(userName);
+            }
+        });
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +75,12 @@ public class CreateRoomActivity extends AppCompatActivity {
             }
         });
 
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
@@ -92,8 +109,7 @@ public class CreateRoomActivity extends AppCompatActivity {
                     .add("title",input_title)
                     .add("subject", input_subject)
                     .add("tasks", input_task)
-//                    .add("username", user_name.getText().toString())
-                    .add("username", "haotian11")
+                    .add("username", userName)
                     .build();
 
             Request request = new Request.Builder()
@@ -113,7 +129,8 @@ public class CreateRoomActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonData = new JSONObject(responseData);
                         Intent intent = new Intent(CreateRoomActivity.this, RoomList.class);
-                        startActivity(intent);
+                        setResult(RESULT_OK, intent);
+//                        startActivity(intent);
                         finish();
                     } catch (JSONException e) {
                         e.printStackTrace();

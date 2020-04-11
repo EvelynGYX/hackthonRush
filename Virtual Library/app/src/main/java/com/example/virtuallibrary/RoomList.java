@@ -1,5 +1,6 @@
 package com.example.virtuallibrary;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,10 +35,15 @@ public class RoomList extends AppCompatActivity {
     private OkHttpClient client;
     private RoomListAdapter adapter;
     private Button create_room_btn;
+    private String userName;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getRoomList();
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("userName");
         setContentView(R.layout.activity_room_list);
         create_room_btn = findViewById(R.id.create_room);
         ActionBar actionBar = getSupportActionBar();
@@ -53,9 +59,10 @@ public class RoomList extends AppCompatActivity {
         create_room_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(RoomList.this, "add", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RoomList.this, CreateRoomActivity.class);
-                startActivity(intent);
+                intent.putExtra("username", userName);
+//                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
 
@@ -118,25 +125,15 @@ public class RoomList extends AppCompatActivity {
         }
     }
 
-//    private void initRoomList(){
-//        for (int i=0; i<6; i++){
-//            RoomInfo room1 = new RoomInfo("1", "COMP10001", "1");
-//            roomList.add(room1);
-//            RoomInfo room2 = new RoomInfo("1", "COMP10002", "2");
-//            roomList.add(room2);
-//            RoomInfo room3 = new RoomInfo("1", "COMP10003", "3");
-//            roomList.add(room3);
-//            RoomInfo room4 = new RoomInfo("1", "COMP10004", "4");
-//            roomList.add(room4);
-//            RoomInfo room5 = new RoomInfo("1", "COMP10001", "1");
-//            roomList.add(room5);
-//            RoomInfo room6 = new RoomInfo("1", "COMP10002", "2");
-//            roomList.add(room6);
-//            RoomInfo room7 = new RoomInfo("1", "COMP10003", "3");
-//            roomList.add(room7);
-//            RoomInfo room8 = new RoomInfo("1", "COMP10004", "4");
-//            roomList.add(room8);
-//        }
-
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                if(resultCode == RESULT_OK){
+                    getRoomList();
+                    Toast.makeText(RoomList.this, "You created a new room", Toast.LENGTH_SHORT).show();
+                }
+        }
+    }
 }

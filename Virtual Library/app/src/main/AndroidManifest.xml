@@ -14,16 +14,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".CreateRoomActivity"></activity>
-        <activity android:name=".CreateRoom" />
-        <activity android:name=".RoomList"
-            android:launchMode="singleTask"
-            >
+        <activity android:name=".RoomList" android:launchMode="singleTask"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>
