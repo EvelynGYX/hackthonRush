@@ -16,6 +16,7 @@
         <activity android:name=".CreateRoomActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".RoomListActivity" android:launchMode="singleTask"></activity>
+        <activity android:name=".RoomspaceActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

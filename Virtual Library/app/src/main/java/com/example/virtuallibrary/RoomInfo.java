@@ -10,9 +10,9 @@ public class RoomInfo {
     private String subject;
     private String task;
 
-    public RoomInfo( String roomName, String numberOfUsers,
+    public RoomInfo(String roomID, String roomName, String numberOfUsers,
                     String roomType, String subject, String task){
-//        this.roomID = roomID;
+        this.roomID = roomID;
         this.roomName = roomName;
         this.numberOfUsers = numberOfUsers;
         this.roomType = roomType;
@@ -20,9 +20,9 @@ public class RoomInfo {
         this.task = task;
     }
 
-//    public String getRoomID(){
-//        return roomID;
-//    }
+    public String getRoomID(){
+        return roomID;
+    }
 
     public String getRoomName(){
         return roomName;
