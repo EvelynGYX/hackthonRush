@@ -22,6 +22,8 @@
             android:launchMode="singleTask" />
         <activity android:name=".RoomspaceActivity" />
         <activity android:name=".LoginActivity">
+        </activity>
+        <activity android:name=".RoomspaceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

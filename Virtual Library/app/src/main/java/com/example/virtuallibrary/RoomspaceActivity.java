@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +19,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+
+import static androidx.navigation.fragment.NavHostFragment.findNavController;
 
 public class RoomspaceActivity extends AppCompatActivity {
 
@@ -54,6 +58,12 @@ public class RoomspaceActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        NavController navController = Navigation.findNavController(findViewById(R.id.nav_host_fragment));
+        // pass data
+        Bundle bundle = new Bundle();
+        bundle.putString("DATA","your value");
+        navController.setGraph(R.navigation.nav_graph, bundle);
     }
 
     @Override
