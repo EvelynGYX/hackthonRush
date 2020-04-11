@@ -45,9 +45,6 @@ public class RoomSpaceFragment extends Fragment {
         User user = new User("Evelyn");
         this.userArrayList.add(user);
         this.userArrayList.add(user);
-        this.userArrayList.add(user);
-        this.userArrayList.add(user);
-        this.userArrayList.add(user);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
